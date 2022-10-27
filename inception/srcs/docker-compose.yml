@@ -4,11 +4,9 @@ services:
     nginx:
         build: ./requirements/nginx
         restart: always
-services:
     mariadb:
         build: ./requirements/mariadb
         restart: always
-services:
     wordpress:
         build: ./requirements/wordpress
         restart: always
