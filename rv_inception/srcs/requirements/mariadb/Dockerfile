@@ -16,3 +16,6 @@ RUN apt-get update && apt-get install -y \
 
 EXPOSE 3306
 
+ENTRYPOINT ["./config_mariadb.sh"]
+
+CMD ["mysqld"]
