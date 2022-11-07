@@ -1,0 +1,11 @@
+##BUILD IMAGES
+sudo docker-compose build
+##RUN CONTAINERS
+#db:
+sudo docker-compose run --name db -p 3306:3306 db
+#wordpress
+sudo docker-compose run --name wordpress wordpress
+#nginx
+sudo docker-compose run --name nginx -p 443:443 nginx
+#
+
