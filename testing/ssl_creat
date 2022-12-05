@@ -1,8 +1,0 @@
-openssl req \
-	-x509 \
-	-nodes \
-	-days 365 \
-	-newkey rsa:4096 \
-	-keyout rvalton.42.fr.key.pem \
-	-out rvalton.42.fr-x509.crt \
-	-subj "/C=FR/L=Paris/CN=rvalton.42.fr/emailAddress=rvalton@student.42.fr"

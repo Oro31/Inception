@@ -17,4 +17,4 @@ EXPOSE 3306
 
 ENTRYPOINT ["./config_mariadb.sh"]
 
-CMD ["mariadb"]
+CMD ["mysqld", "--console"]
