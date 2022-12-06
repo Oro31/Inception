@@ -1,14 +1,16 @@
-change hostname:
+####change hostname:
 1) setup new hostname (rvalton.42.fr) in /etc/hostname
 2) setup "127.0.0.1 rvalton.42.fr" in /etc/hosts
 3) reboot
-create futur volume:
+####create futur volume:
 1) mkdir ~/data
 2) mkdir ~/data/db_data
 2) mkdir ~/data/wp_data
-clean up docker:
-docker stop $(docker ps -qa);
-docker rm $(docker ps -qa);
-docker rmi -f $(docker images -qa);
-docker volume rm $(docker volume ls -q);
-docker network rm $(docker network ls -q);
+####clean up docker:
+sudo docker stop $(sudo docker ps -qa); sudo docker rm $(sudo docker ps -qa); sudo docker rmi -f $(sudo docker images -qa); sudo docker volume rm $(sudo docker volume ls -q); sudo docker network rm $(sudo docker network ls -q) 2>/dev/null
+####actual password for installed wordpress user:
+59d)GLhCHl9T(jAPXo
+####import save.sql
+mysql -u root ${MARIA_DATABASE} < exported.sql
+####denie passwordlessroot acces to db
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MARIA_ROOT_PASSWORD}'; FLUSH PRIVILEGES;" | mariadb -u root

@@ -2,15 +2,22 @@ version: '3'
 
 services:
     mariadb:
+        image: mariadb
         container_name: mariadb
         build: ./requirements/mariadb/
         volumes:
             - db_data:/var/lib/mysql
+        environment:
+            MARIA_DATABASE: ${MARIA_DATABASE}
+            MARIA_USER: ${MARIA_USER}
+            MARIA_ROOT_PASSWORD: ${MARIA_ROOT_PASSWORD}
+            MARIA_PASSWORD: ${MARIA_PASSWORD}
         networks:
           - nginx_network
         restart: always
 
     wordpress:
+        image: wordpress
         container_name: wordpress
         build: ./requirements/wordpress/
         volumes:
@@ -27,6 +34,7 @@ services:
         restart: always
 
     nginx:
+        image: nginx
         container_name: nginx
         build: ./requirements/nginx/
         volumes:
