@@ -8,4 +8,6 @@ echo "GRANT ALL ON *.* TO 'rvalton'@'%' IDENTIFIED BY 'password'; FLUSH PRIVILEG
 
 echo "CREATE DATABASE IF NOT EXISTS mariadb; GRANT ALL ON mariadb.* TO 'rvalton'@'%' IDENTIFIED BY 'password'; FLUSH PRIVILEGES;" | mariadb -u root
 
+/etc/init.d/mysql stop
+
 exec "$@"

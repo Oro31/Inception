@@ -1,21 +1,22 @@
 all:
-	sudo docker-compose build \
-	&& sudo docker-compose ps
+	cd srcs \
+	&& sudo docker-compose up -d \
+	&& sudo docker-compose ps -a
 
 build:
-	sudo docker-compose build \
-	&& sudo docker-compose ps
-
-up:
-	sudo docker-compose up \
-	&& sudo docker-compose ps
+	cd srcs \
+	&& sudo docker-compose build \
+	&& sudo docker-compose up -d \
+	&& sudo docker-compose ps -a
 
 down:
-	sudo docker-compose down \
-	&& sudo docker-compose ps
+	cd srcs \
+	&& sudo docker-compose down \
+	&& sudo docker-compose ps -a
 
 ps:
-	sudo docker-compose ps
+	cd srcs \
+	&& sudo docker-compose ps -a
 
 re:
 	make down
