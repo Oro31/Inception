@@ -2,6 +2,11 @@
 
 /etc/init.d/mysql start
 
+if [ -d "/var/lib/mysql/${MARIA_DATABASE}" ]
+then
+	echo "Nothing to do for mariadb"
+else
+
 mysql_secure_installation <<_EOF_
 
 y
@@ -20,6 +25,8 @@ echo "GRANT ALL ON *.* TO '${MARIA_USER}'@'%' IDENTIFIED BY '${MARIA_PASSWORD}';
 echo "CREATE DATABASE IF NOT EXISTS ${MARIA_DATABASE}; GRANT ALL ON ${MARIA_DATABASE}.* TO '${MARIA_USER}'@'%' IDENTIFIED BY '${MARIA_PASSWORD}'; FLUSH PRIVILEGES;" | mariadb -u root
 
 mysql -u ${MARIA_USER} "-ppassword" ${MARIA_DATABASE} < wp_exported.sql
+
+fi
 
 /etc/init.d/mysql stop
 

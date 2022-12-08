@@ -8,8 +8,12 @@
 2) mkdir ~/data/wp_data
 ####clean up docker:
 sudo docker stop $(sudo docker ps -qa); sudo docker rm $(sudo docker ps -qa); sudo docker rmi -f $(sudo docker images -qa); sudo docker volume rm $(sudo docker volume ls -q); sudo docker network rm $(sudo docker network ls -q) 2>/dev/null
-####actual password for installed wordpress user:
+####actual password for installed wordpress admin rvalton:
 F$nRNwHjbdPvZjcA*w
+####actual password for installed wordpress user Oro31:
+((Lh6C3pb3y19k950Y(b*bMQ
+####export save.sql
+mysqldump -u ${MARIA_USER} -p ${MARIA_DATABASE} > exported.sql
 ####import save.sql
 mysql -u root ${MARIA_DATABASE} < exported.sql
 ####denie passwordlessroot acces to db
