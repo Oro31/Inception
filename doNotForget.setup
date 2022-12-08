@@ -9,8 +9,19 @@
 ####clean up docker:
 sudo docker stop $(sudo docker ps -qa); sudo docker rm $(sudo docker ps -qa); sudo docker rmi -f $(sudo docker images -qa); sudo docker volume rm $(sudo docker volume ls -q); sudo docker network rm $(sudo docker network ls -q) 2>/dev/null
 ####actual password for installed wordpress user:
-59d)GLhCHl9T(jAPXo
+F$nRNwHjbdPvZjcA*w
 ####import save.sql
 mysql -u root ${MARIA_DATABASE} < exported.sql
 ####denie passwordlessroot acces to db
 echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MARIA_ROOT_PASSWORD}'; FLUSH PRIVILEGES;" | mariadb -u root
+####navigate into mariadb
+SELECT user FROM mysql.user;
+DESC mysql.user;
+SHOW DATABASES;
+USE database_name;
+SHOW TAblES;
+SELECT * FROM table_name;
+####get privilege for Makefile
+sudo usermode -aG sudo moi
+####Makefile can do
+docker-compose -f ".yml_path" up -d

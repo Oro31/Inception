@@ -11,12 +11,10 @@ RUN apt-get update && apt-get install -y \
 	mariadb-client \
 	openssl \
 	vim \
-	&& chown -R mysql:mysql /var/lib/mysql \
-	&& chmod -R 755 /var/lib/mysql \
 	&& mv ./50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 EXPOSE 3306
 
 ENTRYPOINT ["./config_mariadb.sh"]
 
-CMD ["mysqld", "--skip-external-locking"]
+CMD ["mysqld", "--disable-unix-socket"]
